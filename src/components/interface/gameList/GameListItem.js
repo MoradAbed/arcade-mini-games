@@ -1,5 +1,5 @@
 import React from "react";
-import "../../index.css";
+import "../../../index.css";
 import "./GamesListItem.css";
 
 function GamesListItem({ title, icon }) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import "../../index.css";
+import "../../../index.css";
 import "./playerHeader.css";
 
 function PlayerHeader({ userName = "hashem96", size = "lare", playerImage = "https://i.imgur.com/GmbYauk.jpg" }) {

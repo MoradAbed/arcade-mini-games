@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import "../../index.css";
+import "../../../index.css";
 import "./LoginForm.css";
-import Loading from "./loading";
+import Loading from "../loading/loading";
 
 
 

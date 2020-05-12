@@ -1,5 +1,5 @@
 import React from "react";
-import "../../index.css";
+import "../../../index.css";
 import "./gameList.css";
 import GameListItem from "./GameListItem";
 

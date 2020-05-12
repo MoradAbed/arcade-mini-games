@@ -1,7 +1,7 @@
 import React from 'react';
-import "../../index.css";
+import "../../../index.css";
 import Popup from "reactjs-popup";
-import "./pop-res/popup.css";
+import "./resultPopup/popup.css";
 
 
 

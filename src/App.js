@@ -1,8 +1,7 @@
 import React, {useEffect} from 'react';
-import LoginForm from "./components/interface/LoginForm";
-import PlayerHeader from "./components/interface/PlayerHeader"
-import ResultPopup from './components/interface/ResultPopup';
-import GamesList from "./components/interface/GamesList";
+import LoginForm from "./components/interface/loginForm/LoginForm";
+import PlayerHeader from "./components/interface/playerHeader/PlayerHeader"
+import GamesList from "./components/interface/gameList/GamesList";
 
 const states = {
     login:"login",
