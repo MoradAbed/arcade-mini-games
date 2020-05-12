@@ -1,0 +1,14 @@
+.gameListContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  top: 100px;
+  background-color: var(--color-purple);
+  align-content: flex-end;
+  padding: 100px;
+}
