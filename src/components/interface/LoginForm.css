@@ -7,8 +7,10 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    color: var(--color-font-white)
+    color: var(--color-font-white);
+    pointer-events: none;
 }
+
 
 .loginForm{
     display: flex;

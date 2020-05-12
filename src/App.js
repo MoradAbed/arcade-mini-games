@@ -1,5 +1,6 @@
 import React from 'react';
 import LoginForm from "./components/interface/LoginForm";
+import ResultPopup from './components/interface/ResultPopup';
 
 
 function App() {
@@ -7,7 +8,8 @@ function App() {
   return (
     <div>
       {/*if user is not logged in*/}
-      <LoginForm/>
+      <LoginForm />
+      <ResultPopup />
     </div>
   );
 }
