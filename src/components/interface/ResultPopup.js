@@ -1,9 +1,17 @@
 import React from 'react';
 
-function ResultPopup(props) {
+const ResultPopup = () => {
     return (
-        <div></div>
-    );
+        <div className="popUpContainer">
+            <div className="popTextContainer"></div>
+            <div className="btn">
+                <label htmlFor="popUpBtn"></label>
+            <input type="button" name="popUpBtn">Close</input>
+            </div>
+        </div>
+
+    )
+
 }
 
 export default ResultPopup;
