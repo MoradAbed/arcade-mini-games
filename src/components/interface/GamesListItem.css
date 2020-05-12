@@ -1,0 +1,14 @@
+.gameListItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.gameIcon {
+  border: 2px white solid;
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  margin: 0 10px;
+}

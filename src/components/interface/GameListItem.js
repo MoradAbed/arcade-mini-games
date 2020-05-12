@@ -1,10 +1,16 @@
-import React from 'react';
+import React from "react";
 import "../../index.css";
+import "./GamesListItem.css";
 
-function GameListItem(props) {
-    return (
-        <div></div>
-    );
+function GamesListItem({ title, icon }) {
+  console.log(icon);
+
+  return (
+    <section className="gameListItem">
+      <img src={icon} className="gameIcon" />
+      <span> {title}</span>
+    </section>
+  );
 }
 
-export default GameListItem;
+export default GamesListItem;
