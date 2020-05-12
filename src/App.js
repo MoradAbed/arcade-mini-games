@@ -1,5 +1,6 @@
 import React from 'react';
 import LoginForm from "./components/interface/LoginForm";
+import PlayerHeader from "./components/interface/PlayerHeader"
 
 
 function App() {
@@ -7,7 +8,11 @@ function App() {
   return (
     <div>
       {/*if user is not logged in*/}
-      <LoginForm/>
+      {/* <LoginForm /> */}
+    <PlayerHeader />
+      
+    {/*if user is logged in*/}
+
     </div>
   );
 }

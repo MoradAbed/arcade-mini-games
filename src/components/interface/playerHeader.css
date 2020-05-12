@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-black);
+    border-bottom: 3px var(--color-border-white) solid;
+    height: 100%;
+}
+
+.imageContainer {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.playerImage {
+    height: 100px;
+    border-radius: 50%;
+    border: 10px var( --color-font-white) solid;
+}
+
+.playerNameContainer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: var(--color-font-white);
+}
