@@ -48,9 +48,19 @@ function App() {
     if(pageState === states.homePage)
      return <div>
             {userData && <PlayerHeader userName={userData.name} playerImage={userData.image} size="large" />}
+            {/*delete the button*/}
+            <button onClick={()=>setPageState(states.inGame)} style={{width:"100px" ,height:"100px", position:"fixed",left:"0",bottom:"0"}}/>
          <GamesList />
     </div>;
 
+    if(pageState === states.inGame)
+        return <div>
+            {userData && <PlayerHeader userName={userData.name} playerImage={userData.image} size="small" />}
+            {/*delete the button*/}
+            <button onClick={()=>setPageState(states.homePage)} style={{width:"100px" ,height:"100px", position:"fixed",left:"0",bottom:"0"}}/>
+
+            <GamesList />
+        </div>;
 
 
     return <div>
