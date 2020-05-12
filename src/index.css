@@ -4,8 +4,12 @@
   --color-border-white: white;
   --color-font-white: white;
   --border-radius:20px
+  
 }
+*{
+ transition: all .5s;
 
+}
 
 
 body {
@@ -17,10 +21,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: var(--color-black);
 }
-/* }
-div{
-  background: rgba(255, 255, 255, 0.2);
-} */
 
 
 input[type=text]{
