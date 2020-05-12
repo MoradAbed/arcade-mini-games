@@ -16,14 +16,8 @@ function App() {
     const [pageState,setPageState] = React.useState(states.login)
 
 
-    useEffect(()=>{
-        console.log(pageState)}
-
-        )
-
 
     const getUser = (username)=>{
-
 
         fetch(`https://api.github.com/users/${encodeURI(username)}?access_token=${process.env["REACT_APP_GITHUB_TOKEN"]}`)
             .then(res=> res.json())
@@ -35,7 +29,6 @@ function App() {
             .catch(err => {
                 throw new Error(`fetch getUserData failed ${err}`);
             });
-
 
     }
 
@@ -64,7 +57,7 @@ function App() {
 
 
     return <div>
-      page not found
+      state not found
     </div>;
 
 
