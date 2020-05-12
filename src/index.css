@@ -4,8 +4,12 @@
   --color-border-white: white;
   --color-font-white: white;
   --border-radius:20px
+  
 }
+*{
+ transition: all .5s;
 
+}
 
 
 body {
@@ -15,11 +19,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: var(--color-purple);
-
+  background: var(--color-black);
 }
 div{
-  /*background: rgba(255, 255, 255, 0.2);*/
+  /* background: rgba(255, 255, 255, 0.2); */
 }
 
 
