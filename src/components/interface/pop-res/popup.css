@@ -1,0 +1,35 @@
+
+  .modal {
+    font-size: 12px;
+    border: 6px  var(--color-purple)  solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal > .header {
+    width: 98%;
+    border-bottom: 1px dotted gray;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
+  }
+
+
+  .modal > .content {
+    width: 100%;
+    padding: 10px 5px;
+    text-align: center;
+  }
+
+
+  .modal > .close {
+    cursor: pointer;
+    width: 70px;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #cfcece;
+  }
