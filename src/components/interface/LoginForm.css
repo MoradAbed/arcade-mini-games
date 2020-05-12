@@ -1,0 +1,24 @@
+
+
+.formContainer{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    color: var(--color-font-white)
+}
+
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 150px;
+    width: 100%;
+
+    border-top: 3px var(--color-border-white)  solid;
+    border-bottom: 3px var(--color-border-white)  solid;
+    background-color: var(--color-purple);
+}
