@@ -1,0 +1,79 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-purple);
+    border-bottom: 3px var(--color-border-white) solid;
+    height: 150px;
+    position: relative;
+}
+
+.imageContainer {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: -70px;
+    width: 200px;
+    height: 200px;
+}
+
+.playerImage {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 10px var( --color-font-white) solid;
+}
+
+
+.playerName {
+    position: absolute;
+    color: var(--color-font-white);
+    bottom:-25px;
+    text-align: center;
+    left:0;
+    right:0;
+}
+
+
+
+
+
+.containerSmall {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-purple);
+    border-bottom: 3px var(--color-border-white) solid;
+    position: relative;
+    height: 70px;
+}
+
+
+
+
+
+.imageContainerSmall {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: -90px;
+    width: 150px;
+    height: 150px;
+    left:25px;
+}
+
+
+
+.playerNameSmall {
+    position: absolute;
+    color: var(--color-font-white);
+    /* bottom:0; */
+    /* top:0; */
+    left:160px;
+    bottom: 50px;
+    
+    
+}
