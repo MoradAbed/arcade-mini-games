@@ -3,10 +3,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-purple);
+    background-color: var(--color-black);
     border-bottom: 3px var(--color-border-white) solid;
     height: 150px;
     position: relative;
+    margin-bottom: 130px;
+    z-index: 5;
 }
 
 .imageContainer {
@@ -34,6 +36,7 @@
     text-align: center;
     left:0;
     right:0;
+
 }
 
 
@@ -45,10 +48,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-purple);
+    background-color: var(--color-black);
     border-bottom: 3px var(--color-border-white) solid;
     position: relative;
     height: 70px;
+
+    z-index: 5;
+
 }
 
 
@@ -74,6 +80,7 @@
     /* top:0; */
     left:160px;
     bottom: 50px;
-    
-    
+    width: fit-content;
+
+
 }

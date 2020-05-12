@@ -10,8 +10,8 @@
     position: absolute;
     color: var(--color-font-white);
     pointer-events: none;
+    background-color: var(--color-black);
 }
-
 
 .loginForm{
     display: flex;
@@ -21,6 +21,7 @@
     padding: 20px 0;
    height: 200px;
     width: 100%;
+    pointer-events: auto;
 
     border-top: 3px var(--color-border-white)  solid;
     border-bottom: 3px var(--color-border-white)  solid;
