@@ -2,7 +2,11 @@ import React, {useState} from 'react';
 import Board from "./Board";
 import GameIntro from "../commonGameElements/gameIntro/gameIntro";
 import Popup from "../commonGameElements/popup/popup";
+import PropTypes from "prop-types";
 
+TTT.propTypes = {
+    title: PropTypes.string
+};
 
 const states = {
     intro: 0,
@@ -10,14 +14,14 @@ const states = {
     gameResult:2
 }
 
-function TTT() {
+function TTT({title=""}) {
 
     const [gameState, setGameSate] = useState(states.intro)
     const [gameResult, setGameResult] = useState()
 
     if (gameState === states.intro)
         return <div>
-            <GameIntro title="Tick tack toe" onStart={() => setGameSate(states.inGame)}/>
+            <GameIntro title={title} onStart={() => setGameSate(states.inGame)}/>
         </div>
 
     if (gameState === states.inGame)

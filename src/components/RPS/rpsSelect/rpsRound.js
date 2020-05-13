@@ -2,7 +2,12 @@ import React, {useEffect, useState} from 'react';
 import SecondsTimer from "../../commonGameElements/secondsTimer/secondsTimer";
 import "../../commonGameElements/secondsTimer/secondsTimer.css"
 import RpsSelectionRow from "./rpsSelectionRow";
+import PropTypes from "prop-types";
 
+RpsRound.propTypes = {
+    onRoundEnd: PropTypes.func,
+    roundTime: PropTypes.number.isRequired,
+};
 
 
 function RpsRound({onRoundEnd, roundTime= 5}) {
@@ -13,7 +18,6 @@ function RpsRound({onRoundEnd, roundTime= 5}) {
 
 
 
-    //todo return the result
 useEffect(()=>{
     //on round end
 
@@ -37,7 +41,7 @@ useEffect(()=>{
     return (
         <div className="windowContainer">
 
-
+            {/*rival options and label*/}
             <RpsSelectionRow
                 titleBeforeOptions={false}
                 title="rival"
@@ -47,14 +51,15 @@ useEffect(()=>{
                 onSelect={(selectedOption)=>setRivalSelection(selectedOption)}
             />
 
-
+            {/*round timer*/}
             <br/>
             <SecondsTimer time={roundTime} onTimerEnd={ ()=>{
                 setLockSelection(true);
                 setRivalOptionsVisible(true);
             }}/>
             <br/>
-            
+
+            {/*player options and label*/}
             <RpsSelectionRow
                 titleBeforeOptions={true}
                 title="Choose your hand.."
