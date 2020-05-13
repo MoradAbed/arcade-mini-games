@@ -1,14 +1,14 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from "react";
 import LoginForm from "./components/interface/loginForm/LoginForm";
-import PlayerHeader from "./components/interface/playerHeader/PlayerHeader"
+import PlayerHeader from "./components/interface/playerHeader/PlayerHeader";
 import GamesList from "./components/interface/gameList/GamesList";
-import RpsRound from "./components/RPS/rpsSelect/RpsRound";
+import gameData from "../src/components/interface/gameData/gameData.json";
 
 const states = {
-    login:"login",
-    homePage: "homePage",
-    inGame: "inGame"
-}
+  login: "login",
+  homePage: "homePage",
+  inGame: "inGame",
+};
 
 function App() {
 
@@ -35,7 +35,7 @@ function App() {
 
     if(pageState === states.login)
         return  <div>
-            <RpsRound/>
+          
 
             { <LoginForm onLogin={getUser}/> }
         </div>

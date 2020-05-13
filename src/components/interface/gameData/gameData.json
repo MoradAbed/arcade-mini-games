@@ -1,0 +1,17 @@
+[
+  {
+    "title": "rock Paper Scissors",
+    "icon": "/res/rockpaperscissors.jpg",
+    "tag": "RPS"
+  },
+  {
+    "title": "Tik Tak Toe",
+    "icon": "/res/tictaktoe.png",
+    "tag": "TTT"
+  },
+  {
+    "title": "Tik Tak Toe",
+    "icon": "/res/tictaktoe.png",
+    "tag": "TTT"
+  }
+]
