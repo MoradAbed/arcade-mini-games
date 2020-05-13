@@ -30,12 +30,18 @@ import GameListItem from "./GameListItem";
 //   },
 // ];
 
-function GamesList({ data }) {
+function GamesList({ data , onClick }) {
   return (
     <section className="gameListContainer">
       {data &&
         data.map((game) => (
-          <GameListItem title={game.title} icon={game.icon} />
+          <GameListItem
+            title={game.title}
+            icon={game.icon}
+            tag={game.tag}
+            onClick={()=>onClick && onClick(game.tag)}
+            
+          />
         ))}
     </section>
   );
