@@ -2,19 +2,19 @@
   {
     "title": "Rock Paper Scissors",
     "icon": "/res/rockpaperscissors.jpg",
-    "tagPath" : "./components/RPS/RPS"
+    "componentPath" : "./components/RPS/RPS"
 
   },
   {
     "title": "Tik Tak Toe",
     "icon": "/res/tictaktoe.png",
-    "tagPath" : "./components/TTT/TTT"
+    "componentPath" : "./components/TTT/TTT"
 
   },
   {
     "title": "Flip A Coin",
     "icon": "/res/tictaktoe.png",
-    "tagPath" : "./components/TTT/TTT"
+    "componentPath" : "./components/TTT/TTT"
 
 
   }
