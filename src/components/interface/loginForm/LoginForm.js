@@ -35,7 +35,6 @@ function LoginForm({onLogin}) {
                 <input type="submit" name="submit" value="log in"/>
             </form>
         </div>
-
     );
 }
 
