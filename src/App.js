@@ -53,7 +53,6 @@ function App() {
             {/*delete the button*/}
             <button onClick={()=>setPageState(states.homePage)} style={{width:"100px" ,height:"100px", position:"fixed",left:"0",bottom:"0"}}/>
 
-                <RPS />
         </div>;
 
 
