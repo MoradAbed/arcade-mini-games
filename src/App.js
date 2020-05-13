@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import LoginForm from "./components/interface/loginForm/LoginForm";
 import PlayerHeader from "./components/interface/playerHeader/PlayerHeader"
 import GamesList from "./components/interface/gameList/GamesList";
+import RpsRound from "./components/RPS/rpsSelect/RpsRound";
 
 const states = {
     login:"login",
@@ -34,16 +35,18 @@ function App() {
 
     if(pageState === states.login)
         return  <div>
+            <RpsRound/>
+
             { <LoginForm onLogin={getUser}/> }
         </div>
 
     if(pageState === states.homePage)
-     return <div>
+        return <div>
             {userData && <PlayerHeader userName={userData.name} playerImage={userData.image} size="large" />}
             {/*delete the button*/}
             <button onClick={()=>setPageState(states.inGame)} style={{width:"100px" ,height:"100px", position:"fixed",left:"0",bottom:"0"}}/>
-         <GamesList />
-    </div>;
+            <GamesList />
+        </div>;
 
     if(pageState === states.inGame)
         return <div>
@@ -56,7 +59,7 @@ function App() {
 
 
     return <div>
-      state not found
+        state not found
     </div>;
 
 

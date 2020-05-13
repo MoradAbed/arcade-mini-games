@@ -1,0 +1,11 @@
+.timerContainer{
+    height: 30px;
+    width: 100%;
+    background: black;
+}
+
+.timerFill{
+    height: 100%;
+    /*width: 100%;*/
+    background: darkred;
+}
