@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Rock Paper Scissors",
+    "startPageTitle":"Rock Paper Scissors",
+    "icon": "/res/rockpaperscissors.jpg",
+    "alt": "Rock Paper Scissors icon",
+    "componentPath" : "./components/RPS/RPS"
+
+  },
+  {
+    "title": "Tik Tak Toe",
+    "startPageTitle":"Tik Tak Toe",
+    "alt": "Tik Tak Toe icon",
+    "icon": "/res/tictaktoe.png",
+    "componentPath" : "./components/TTT/TTT"
+
+  },
+  {
+    "title": "Flip A Coin",
+    "startPageTitle":"Flip A Coin",
+    "alt": "Flip A Coin icon",
+    "icon": "/res/tictaktoe.png",
+    "componentPath" : "./components/TTT/TTT"
+
+
+  }
+]

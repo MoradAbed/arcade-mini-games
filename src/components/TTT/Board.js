@@ -1,9 +1,13 @@
 import React, {Component} from "react";
-import Square from "./Square";
+import Square from "./square";
 import {render} from "react-dom";
+import PropTypes from "prop-types";
 
-//square-->board==>game
-//board => 9 * square(value, onclick)
+
+Board.propTypes = {
+    onGameEnd: PropTypes.func,
+};
+
 
 const boardState = {
     empty: " ",
@@ -12,7 +16,10 @@ const boardState = {
 };
 
 export default function Board({onGameEnd}) {
-    const [isX, setIsX] = React.useState(true);
+
+    //a way to indicate who's turn it is
+    const [isTurnX, setIsTurnX] = React.useState(true);
+
 
     //setup the board data with empty content
     const [boardData, setBoardData] = React.useState([
@@ -21,10 +28,12 @@ export default function Board({onGameEnd}) {
         [boardState.empty, boardState.empty, boardState.empty],
     ]);
 
-    //whenever the board is modified, check of the game has ended
+
+    //whenever the board is modified, check if the game has ended
     React.useEffect(() => {
         const {isDraw, playerWon, gameEnded} = checkIfGameEnded();
 
+        //if the game has ended - call "onGameEnd" param
         if (gameEnded && onGameEnd)
              onGameEnd({
                     draw: isDraw,
@@ -33,25 +42,24 @@ export default function Board({onGameEnd}) {
 
     }, [boardData]);
 
-    //if the player played his turn, play the npc's turn
+
+    //if the player played his turn, play the npc's turn after a small delay
     React.useEffect(() => {
 
-        if (!isX){
-
+        if (!isTurnX){
 
             let id = setTimeout(() => {
                     setRandomValue();
-                    setIsX(!isX);
+                    setIsTurnX(!isTurnX);
                 }, 600);
 
             return ()=> clearTimeout(id)
 
         }
-    }, [isX]);
+    }, [isTurnX]);
 
 
-
-
+    //check if the game has ended or not
     const checkIfGameEnded = () => {
         const xPlayer = hasPlayerWon(boardState.X);
         const oPlayer = hasPlayerWon(boardState.O);
@@ -61,6 +69,8 @@ export default function Board({onGameEnd}) {
 
         return {isDraw:  boardFull && !xPlayer && !oPlayer, playerWon: xPlayer , gameEnded:xPlayer || oPlayer || boardFull };
     };
+
+
     const hasPlayerWon = (playerSymbol) => {
         //check rows
         if (boardData.some((row) => row.every((cell) => cell === playerSymbol)))
@@ -75,6 +85,7 @@ export default function Board({onGameEnd}) {
             if (row === 3) return true;
         }
 
+        //check diagonal
         if (
             boardData[0][0] === boardData[1][1] &&
             boardData[1][1] === boardData[2][2] &&
@@ -82,6 +93,8 @@ export default function Board({onGameEnd}) {
         )
             return true;
 
+
+        //check reverse diagonal
         if (
             boardData[0][2] === boardData[1][1] &&
             boardData[1][1] === boardData[2][0] &&
@@ -89,26 +102,45 @@ export default function Board({onGameEnd}) {
         )
             return true;
 
+        //no winner
         return false;
     };
 
-
-
-
     const setValue = (row, col, valueToSet) => {
-        if (checkIfGameEnded().gameEnded) return;
+        //if the game hasn't ended
+        if (checkIfGameEnded().gameEnded)
+            return;
 
-        if (boardData[row][col] !== boardState.empty) return;
+        //if the selected block is not empty
+        if (boardData[row][col] !== boardState.empty)
+            return;
+
+        //clone the board
         let newBoard = boardData.map((row) => [...row]);
+
+        //update the selected spot on the board
         newBoard[row][col] = valueToSet;
-        setIsX(!isX);
+
+        //update the board
         setBoardData(newBoard);
+
+        //swap turn
+        setIsTurnX(!isTurnX);
     };
+
+    //place an 0 in a random spot
     const setRandomValue = () => {
         let placed = false;
-        while (!placed && !checkIfGameEnded().gameEnded) {
+
+        if(checkIfGameEnded().gameEnded)
+            return;
+
+        //find a free random spot
+        while (!placed) {
             let col = Math.floor(Math.random() * 3);
             let row = Math.floor(Math.random() * 3);
+
+            // a random free spot is found - update the board
             if (boardData[row][col] === boardState.empty) {
                 setValue(row, col, boardState.O);
                 placed = true;
@@ -117,11 +149,12 @@ export default function Board({onGameEnd}) {
     };
 
 
-
-
+    //render a square
     const renderSquare = (row, col, data) => (
-        <Square value={data} onClick={() => setValue(row, col, boardState.X)}/>
+        <Square value={data} onClick={() => isTurnX && setValue(row, col, boardState.X)}/>
     );
+
+    //render all squares
     return (
         <div className="grid">
             {boardData.map((row, rowIndex) => (

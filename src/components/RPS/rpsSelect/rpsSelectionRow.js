@@ -1,22 +1,30 @@
 import React, {useEffect, useState} from 'react';
-import RpsOption from "./RpsOption"
+import RpsOption from "./rpsOption"
 import rockColor from "../icons/icon-rock-color.svg"
 import paperColor from "../icons/icon-paper-color.svg"
 import scissorsColor from "../icons/icon-scissors-color.svg"
 import questionMark from "../icons/icon-questionMark.svg"
 import "./rpsRound.css"
+import PropTypes from "prop-types";
+
+RpsSelectionRow.propTypes = {
+    onSelect: PropTypes.func,
+    title: PropTypes.string,
+    titleBeforeOptions: PropTypes.bool,
+    roundEnded: PropTypes.bool,
+    areOptionsVisible: PropTypes.bool,
+    randomSelection: PropTypes.bool,
+};
+
+
 
 const userSelections={
     rock:"rock",
     paper:"paper",
     scissors:"scissors"
 }
-const rowState={
-    waitingForInput:0,
-    hideOptions:1,
-    showChosenOption:2,
-    done:3
-}
+
+
 function RpsSelectionRow({onSelect,
                              title="choose your hand",
                              titleBeforeOptions= true ,
@@ -32,9 +40,10 @@ function RpsSelectionRow({onSelect,
 
     useEffect(()=>{
 
+        //when the round ends
         if(roundEnded)
         {
-            //gov the player a random value
+            //gov the player a random value if "roundSelection" is true or if the user didn't select an option
             if (randomSelection || !userSelection) {
                 let values = Object.values(userSelections);
                 let randomChoice = Math.floor(Math.random() * values.length);
@@ -42,7 +51,7 @@ function RpsSelectionRow({onSelect,
                 setUserSelection(values[randomChoice])
             }
 
-            //cal the selected cb function provided in the params
+            //call the selected cb function provided in the params
             if(onSelect)
                 onSelect(userSelection);
 

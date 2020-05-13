@@ -1,5 +1,5 @@
 import React from 'react';
-import "./TTT.css"
+import "./ttt.css"
 
 export default function Square(props) {
     return (

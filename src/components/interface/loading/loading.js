@@ -5,9 +5,9 @@ import "./loading.css";
 
 
 function Loading() {
-
+    //a loading gif
     return <div className="loadingContainer">
-        <img src={loading}/>
+        <img alt="loading gif" src={loading}/>
         <span>loading...</span>
     </div>
 

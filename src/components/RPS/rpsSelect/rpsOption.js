@@ -1,7 +1,16 @@
 import React, {useState} from 'react';
-import PropTypes from 'prop-types';
 import "../../../index.css";
 import "./rpsOption.css";
+import PropTypes from "prop-types";
+
+RpsOption.propTypes = {
+    src: PropTypes.string.isRequired,
+    value: PropTypes.string,
+    onselect: PropTypes.func,
+    canSelect: PropTypes.bool,
+    isSelected: PropTypes.bool,
+
+};
 
 function RpsOption({src,value,isSelected,onSelect,canSelect=true}) {
 
@@ -13,13 +22,5 @@ function RpsOption({src,value,isSelected,onSelect,canSelect=true}) {
     );
 }
 
-RpsOption.propTypes = {
-    src: PropTypes.string.isRequired,
-    value: PropTypes.string,
-    onselect: PropTypes.func,
-    canSelect: PropTypes.bool,
-    isSelected: PropTypes.bool,
-
-};
 
 export default RpsOption;

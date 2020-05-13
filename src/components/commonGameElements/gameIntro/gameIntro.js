@@ -1,8 +1,16 @@
 import React from 'react'
-import "./GameIntro.css";
+import "./gameIntro.css";
+import PropTypes from 'prop-types';
+
+GameIntro.propTypes = {
+    title: PropTypes.string,
+    onStart: PropTypes.func
+};
 
 function GameIntro({ onStart,title }) {
 
+    //show a "start game button" with a title above it,
+    // when the player hits "start game" invoke "onStart" param
     return (
         <div className="RPS-Container">
 

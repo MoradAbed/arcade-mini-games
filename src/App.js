@@ -1,9 +1,10 @@
 import React, {lazy, Suspense} from "react";
-import LoginForm from "./components/interface/loginForm/LoginForm";
+import LoginForm from "./components/interface/loginForm/loginForm";
 import PlayerHeader from "./components/interface/playerHeader/PlayerHeader";
-import GamesList from "./components/interface/gameList/GamesList";
-import gameData from "../src/components/interface/gameData/gameData.json";
-import GameBoard from "./components/interface/GameBoard"
+import GamesList from "./components/interface/gameList/gamesList";
+import gameData from "./util/gameData.json";
+import GameBoard from "./components/interface/gameBoard/gameBoard"
+import fetchUserDate from "./util/fetchUserData";
 
 const states = {
     login: "login",
@@ -18,62 +19,65 @@ function App() {
     const [selectedGamePath, setSelectedGamePath] = React.useState()
 
 
-    function lazyLoadComponent(path) {
+    //load the game tag for the selected game
+    function lazyLoadComponent({startPageTitle,componentPath:path}) {
         let Component =  lazy(()=>import(`${path}`))
-        return <Component />
+        return <Component title={startPageTitle}/>
 
     }
 
-
+    //load the user date
     const getUser = (username) => {
+        fetchUserDate(username,({name,html_url,avatar_url})=>{
+            setPageState(states.homePage)
+            setUserData({
+                name: name ? name : username,
+                html_url,
+                image: avatar_url })
 
-        fetch(`https://api.github.com/users/${encodeURI(username)}?access_token=${process.env["REACT_APP_GITHUB_TOKEN"]}`)
-            .then(res => res.json())
-            .then(data => {
-                setPageState(states.homePage)
-                let { name, html_url, avatar_url } = data
-                setUserData({ name: name ? name : username, html_url, image: avatar_url })
-            })
-            .catch(err => {
-                throw new Error(`fetch getUserData failed ${err}`);
-            });
+        })
 
     }
 
-
+    //if the user hasn't logged in
     if (pageState === states.login)
         return <div>
-
             <LoginForm onLogin={getUser} />
         </div>
 
+    //if the user logged in - show the available games
     if (pageState === states.homePage)
         return <div>
+            {/*show header*/}
             {userData && <PlayerHeader userName={userData.name} playerImage={userData.image} size="large" />}
-            {/*delete the button*/}
-            <button onClick={() => setPageState(states.inGame)} style={{ width: "100px", height: "100px", position: "fixed", left: "0", bottom: "0" }} />
-            <GamesList data={gameData} onClick={(componentPath) => {
-                setSelectedGamePath(componentPath)
+
+            {/*show the list of games*/}
+            <GamesList data={gameData} onClick={(gameData) => {
+                setSelectedGamePath(gameData)
                 setPageState(states.inGame)
             }} />
         </div>;
 
+    //if the user enters a game
     if (pageState === states.inGame)
         return <div>
+            {/*show header*/}
             {userData && <PlayerHeader userName={userData.name} playerImage={userData.image} size="small" />}
 
+            {/*load the game*/}
             <GameBoard>
                 <Suspense fallback={<div>loading...</div>}>
                     {selectedGamePath &&lazyLoadComponent(selectedGamePath)}
                 </Suspense>
             </GameBoard>
 
-            {/*delete the button*/}
+            {/*todo delete the button*/}
             <button onClick={() => setPageState(states.homePage)} style={{ width: "100px", height: "100px", position: "fixed", left: "0", bottom: "0" }} />
 
         </div>;
 
 
+    //any other unaccounted for state ( no such state exists )
     return <div>
         state not found
     </div>;
