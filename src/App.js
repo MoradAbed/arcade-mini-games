@@ -3,7 +3,6 @@ import LoginForm from "./components/interface/loginForm/LoginForm";
 import PlayerHeader from "./components/interface/playerHeader/PlayerHeader";
 import GamesList from "./components/interface/gameList/GamesList";
 import gameData from "../src/components/interface/gameData/gameData.json";
-
 import RPS from "./components/RPS/RPS"
 import TTT from "./components/TTT/TTT"
 
@@ -22,14 +21,14 @@ function App() {
 
     function getGameTag(selectedGame) {
 
-     switch (selectedGame) {
+        switch (selectedGame) {
             case "RPS": return <RPS />
             case "TTT": return <TTT />
 
-     
-         default:
-             break;
-     }
+
+            default:
+                break;
+        }
 
 
 
@@ -66,8 +65,8 @@ function App() {
             {/*delete the button*/}
             <button onClick={() => setPageState(states.inGame)} style={{ width: "100px", height: "100px", position: "fixed", left: "0", bottom: "0" }} />
             <GamesList data={gameData} onClick={(tag) => {
-                
-               setSelectedGame( getGameTag(tag))
+
+                setSelectedGame(getGameTag(tag))
                 setPageState(states.inGame)
             }} />
         </div>;
