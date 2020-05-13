@@ -1,16 +1,16 @@
 import React from 'react'
-import "./RPSIntro.css";
+import "./GameIntro.css";
 
-function RPSIntro({ onStart }) {
+function GameIntro({ onStart,title }) {
 
     return (
         <div className="RPS-Container">
 
-            <h2>WELCOME TO ROCK PAPER SCISSORS</h2>
+            <h2>{title}</h2>
             <input type="button" id="startGameBtn" value="Start Game" onClick={() => onStart && onStart()}></input>
 
         </div>
     );
 }
 
-export default RPSIntro;
+export default GameIntro;
