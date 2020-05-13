@@ -43,8 +43,11 @@ function RPS() {
         return   <div  className="gameContainer">
                 <ResultPopup
                     btnText={"restart"}
-                    onResolve={()=>{setGameState(states.intro)}}
-                             content={gameResult.draw? "it's a draw!!": gameResult.playerWon?"you won!!!" : "you lost :("} />
+                    onResolve={()=>{
+                        setGameResult(null);
+                        setGameState(states.intro);
+                    }}
+                    content={gameResult.draw? "it's a draw!!": gameResult.playerWon?"you won!!!" : "you lost :("} />
             </div>
     }
 
