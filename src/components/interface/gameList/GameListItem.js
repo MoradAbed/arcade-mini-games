@@ -4,7 +4,6 @@ import "./GamesListItem.css";
 
 function GamesListItem({ title, icon }) {
   console.log(icon);
-
   return (
     <section className="gameListItem">
       <img src={icon} className="gameIcon" />
