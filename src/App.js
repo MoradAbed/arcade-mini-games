@@ -2,6 +2,8 @@ import React, {useEffect} from 'react';
 import LoginForm from "./components/interface/loginForm/LoginForm";
 import PlayerHeader from "./components/interface/playerHeader/PlayerHeader"
 import GamesList from "./components/interface/gameList/GamesList";
+import Board from './components/TTT/Board';
+import Square from './components/TTT/Square';
 
 const states = {
     login:"login",
@@ -34,6 +36,7 @@ function App() {
 
     if(pageState === states.login)
         return  <div>
+            <Board />
             { <LoginForm onLogin={getUser}/> }
         </div>
 
