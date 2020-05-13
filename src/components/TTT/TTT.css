@@ -15,3 +15,9 @@
     align-items: center;
     justify-content: center;
 }
+
+.gameContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

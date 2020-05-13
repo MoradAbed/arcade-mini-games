@@ -35,11 +35,18 @@ export default function Board({onGameEnd}) {
 
     //if the player played his turn, play the npc's turn
     React.useEffect(() => {
-        if (!isX)
-            setTimeout(() => {
-                setRandomValue();
-                setIsX(!isX);
-            }, 1000);
+
+        if (!isX){
+
+
+            let id = setTimeout(() => {
+                    setRandomValue();
+                    setIsX(!isX);
+                }, 600);
+
+            return ()=> clearTimeout(id)
+
+        }
     }, [isX]);
 
 
