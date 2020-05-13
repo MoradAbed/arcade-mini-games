@@ -5,6 +5,7 @@ import GamesList from "./components/interface/gameList/GamesList";
 import gameData from "../src/components/interface/gameData/gameData.json";
 import RPS from "./components/RPS/RPS"
 import TTT from "./components/TTT/TTT"
+import GameBoard from "./components/interface/GameBoard"
 
 const states = {
     login: "login",
@@ -75,10 +76,10 @@ function App() {
         return <div>
             {userData && <PlayerHeader userName={userData.name} playerImage={userData.image} size="small" />}
 
-            <Suspense fallback={<div>Loading...</div>}>
+            <GameBoard>
                 {SelectedGame}
-            </Suspense>
 
+            </GameBoard>
 
             {/*delete the button*/}
             <button onClick={() => setPageState(states.homePage)} style={{ width: "100px", height: "100px", position: "fixed", left: "0", bottom: "0" }} />

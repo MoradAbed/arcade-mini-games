@@ -1,0 +1,16 @@
+.gamesContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameStyle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+    background-color: salmon;
+    padding: 10px;
+}

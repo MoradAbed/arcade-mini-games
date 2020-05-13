@@ -1,9 +1,19 @@
 import React from 'react';
 import "../../index.css";
+import "./gameBoard.css"
 
-function GameBoard(props) {
+function GameBoard({ children }) {
     return (
-        <div></div>
+        <div className="gamesContainer">
+
+            <div className="gameStyle">
+
+                {children}
+
+            </div>
+
+
+        </div>
     );
 }
 
