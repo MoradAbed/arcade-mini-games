@@ -1,15 +1,14 @@
-import React, {useEffect} from 'react';
+import React  from "react";
 import LoginForm from "./components/interface/loginForm/LoginForm";
-import PlayerHeader from "./components/interface/playerHeader/PlayerHeader"
+import PlayerHeader from "./components/interface/playerHeader/PlayerHeader";
 import GamesList from "./components/interface/gameList/GamesList";
-import Board from './components/TTT/Board';
-import Square from './components/TTT/Square';
+import gameData from "../src/components/interface/gameData/gameData.json";
 
 const states = {
-    login:"login",
-    homePage: "homePage",
-    inGame: "inGame"
-}
+  login: "login",
+  homePage: "homePage",
+  inGame: "inGame",
+};
 
 function App() {
 
@@ -36,17 +35,17 @@ function App() {
 
     if(pageState === states.login)
         return  <div>
-            <Board />
-            { <LoginForm onLogin={getUser}/> }
+
+             <LoginForm onLogin={getUser}/>
         </div>
 
     if(pageState === states.homePage)
-     return <div>
+        return <div>
             {userData && <PlayerHeader userName={userData.name} playerImage={userData.image} size="large" />}
             {/*delete the button*/}
             <button onClick={()=>setPageState(states.inGame)} style={{width:"100px" ,height:"100px", position:"fixed",left:"0",bottom:"0"}}/>
-         <GamesList />
-    </div>;
+            <GamesList data={gameData} />
+        </div>;
 
     if(pageState === states.inGame)
         return <div>
@@ -54,12 +53,12 @@ function App() {
             {/*delete the button*/}
             <button onClick={()=>setPageState(states.homePage)} style={{width:"100px" ,height:"100px", position:"fixed",left:"0",bottom:"0"}}/>
 
-            <GamesList />
+                <RPS />
         </div>;
 
 
     return <div>
-      state not found
+        state not found
     </div>;
 
 

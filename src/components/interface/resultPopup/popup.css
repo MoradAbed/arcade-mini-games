@@ -1,18 +1,33 @@
 
+
+.popUpContainer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+ display: flex;
+  align-items: center;
+justify-content: center;
+  z-index: 10;
+}
+
   .modal {
+    width :200px;
+    height :100px;
+
+    background-color: var(--color-black);
+    color:var(--color-border-white);
+
+    border-radius: 10px;
+    border:3px var(--color-border-white)  solid;
+
     font-size: 12px;
-    border: 6px  var(--color-purple)  solid;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  .modal > .header {
-    width: 98%;
-    border-bottom: 1px dotted gray;
-    font-size: 18px;
-    text-align: center;
-    padding: 5px;
+
   }
 
 
