@@ -17,7 +17,7 @@ Some of the features that was implemented in our game:
 
 </br>
 </br>
--
+----
 
 During the developing process, we defined components thats common for the whole project and compononets that will be used in a single place, hence;
 
