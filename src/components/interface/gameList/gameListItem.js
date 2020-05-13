@@ -1,6 +1,7 @@
 import React from "react";
 import "../../../index.css";
-import "./GamesListItem.css";
+import "./gamesListItem.css";
+
 
 function GamesListItem({ title, icon, tag , onClick }) {
   return (

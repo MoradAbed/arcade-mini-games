@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import SecondsTimer from "../../commonGameElements/secondsTimer/SecondsTimer";
+import SecondsTimer from "../../commonGameElements/secondsTimer/secondsTimer";
 import "../../commonGameElements/secondsTimer/secondsTimer.css"
-import RpsSelectionRow from "./RpsSelectionRow";
+import RpsSelectionRow from "./rpsSelectionRow";
 
 
 

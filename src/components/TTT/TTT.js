@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Board from "./Board";
-import GameIntro from "../commonGameElements/gameIntro/GameIntro";
-import ResultPopup from "../interface/resultPopup/ResultPopup";
+import GameIntro from "../commonGameElements/gameIntro/gameIntro";
+import Popup from "../commonGameElements/popup/popup";
 
 
 const states = {
@@ -10,7 +10,7 @@ const states = {
     gameResult:2
 }
 
-function Ttt() {
+function TTT() {
 
     const [gameState, setGameSate] = useState(states.intro)
     const [gameResult, setGameResult] = useState()
@@ -36,7 +36,7 @@ function Ttt() {
     if (gameState === states.gameResult)
         { // noinspection BadExpressionStatementJS
             return <div>
-                <ResultPopup
+                <Popup
                     btnText="restart"
                     onResolve={()=>{
                         setGameResult(null);
@@ -52,4 +52,4 @@ function Ttt() {
 
 
 
-export default Ttt;
+export default TTT;

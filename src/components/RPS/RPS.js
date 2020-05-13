@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import RpsRound from "./rpsSelect/RpsRound";
-import GameIntro from "../commonGameElements/gameIntro/GameIntro";
+import RpsRound from "./rpsSelect/rpsRound";
+import GameIntro from "../commonGameElements/gameIntro/gameIntro";
 import "./rps.css"
-import ResultPopup from "../interface/resultPopup/ResultPopup";
+import Popup from "../commonGameElements/popup/popup";
 
 const states = {
     intro : 0,
@@ -41,7 +41,7 @@ function RPS() {
 
     if(gameState === states.endGame){
         return   <div  className="gameContainer">
-                <ResultPopup
+                <Popup
                     btnText={"restart"}
                     onResolve={()=>{
                         setGameResult(null);

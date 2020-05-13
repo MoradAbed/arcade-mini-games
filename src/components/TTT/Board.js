@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Square from "./Square";
+import Square from "./square";
 import {render} from "react-dom";
 
 //square-->board==>game

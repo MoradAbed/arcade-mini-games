@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import RpsOption from "./RpsOption"
+import RpsOption from "./rpsOption"
 import rockColor from "../icons/icon-rock-color.svg"
 import paperColor from "../icons/icon-paper-color.svg"
 import scissorsColor from "../icons/icon-scissors-color.svg"

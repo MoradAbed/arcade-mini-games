@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import "../../../index.css";
-import "./LoginForm.css";
+import "./loginForm.css";
 import Loading from "../loading/loading";
 
 

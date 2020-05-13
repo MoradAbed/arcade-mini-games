@@ -1,5 +1,5 @@
 import React from 'react'
-import "./GameIntro.css";
+import "./gameIntro.css";
 
 function GameIntro({ onStart,title }) {
 

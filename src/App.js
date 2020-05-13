@@ -1,9 +1,9 @@
 import React, {lazy, Suspense} from "react";
-import LoginForm from "./components/interface/loginForm/LoginForm";
+import LoginForm from "./components/interface/loginForm/loginForm";
 import PlayerHeader from "./components/interface/playerHeader/PlayerHeader";
-import GamesList from "./components/interface/gameList/GamesList";
+import GamesList from "./components/interface/gameList/gamesList";
 import gameData from "../src/components/interface/gameData/gameData.json";
-import GameBoard from "./components/interface/GameBoard"
+import GameBoard from "./components/interface/gameBoard/gameBoard"
 
 const states = {
     login: "login",

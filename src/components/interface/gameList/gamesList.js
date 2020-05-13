@@ -1,19 +1,20 @@
 import React from "react";
 import "../../../index.css";
 import "./gameList.css";
-import GameListItem from "./GameListItem";
+import GameListItem from "./gameListItem";
 
 
 function GamesList({ data , onClick }) {
+
+  //loops over the available games and create list items for them
   return (
     <section className="gameListContainer">
       {data &&
-        data.map((game) => (
+        data.map(({title,icon,componentPath}) => (
           <GameListItem
-            title={game.title}
-            icon={game.icon}
-            onClick={()=>onClick && onClick(game.tagPath)}
-            
+            title={title}
+            icon={icon}
+            onClick={()=>onClick && onClick(componentPath)}
           />
         ))}
     </section>

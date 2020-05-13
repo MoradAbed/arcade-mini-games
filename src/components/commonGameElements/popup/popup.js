@@ -5,7 +5,7 @@ import "./popup.css";
 
 
 
-const ResultPopup = ({btnText = 'Click Me', onResolve, content="Your score is 420"}) => {
+const Popup = ({btnText = 'Click Me', onResolve, content="Your score is 420"}) => {
 
     const [visible, setVisible] = React.useState(true)
 
@@ -34,4 +34,4 @@ const ResultPopup = ({btnText = 'Click Me', onResolve, content="Your score is 42
 
 }
 
-export default ResultPopup;
+export default Popup;
