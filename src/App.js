@@ -1,10 +1,8 @@
-import React, { Suspense } from "react";
+import React, {lazy, Suspense} from "react";
 import LoginForm from "./components/interface/loginForm/LoginForm";
 import PlayerHeader from "./components/interface/playerHeader/PlayerHeader";
 import GamesList from "./components/interface/gameList/GamesList";
 import gameData from "../src/components/interface/gameData/gameData.json";
-import RPS from "./components/RPS/RPS"
-import TTT from "./components/TTT/TTT"
 import GameBoard from "./components/interface/GameBoard"
 
 const states = {
@@ -17,23 +15,12 @@ function App() {
 
     const [userData, setUserData] = React.useState()
     const [pageState, setPageState] = React.useState(states.login)
-    const [SelectedGame, setSelectedGame] = React.useState()
+    const [selectedGamePath, setSelectedGamePath] = React.useState()
 
 
-    function getGameTag(selectedGame) {
-
-        switch (selectedGame) {
-            case "RPS": return <RPS />
-            case "TTT": return <TTT />
-
-
-            default:
-                break;
-        }
-
-
-
-
+    function lazyLoadComponent(path) {
+        let Component =  lazy(()=>import(`${path}`))
+        return <Component />
 
     }
 
@@ -65,9 +52,8 @@ function App() {
             {userData && <PlayerHeader userName={userData.name} playerImage={userData.image} size="large" />}
             {/*delete the button*/}
             <button onClick={() => setPageState(states.inGame)} style={{ width: "100px", height: "100px", position: "fixed", left: "0", bottom: "0" }} />
-            <GamesList data={gameData} onClick={(tag) => {
-
-                setSelectedGame(getGameTag(tag))
+            <GamesList data={gameData} onClick={(componentPath) => {
+                setSelectedGamePath(componentPath)
                 setPageState(states.inGame)
             }} />
         </div>;
@@ -77,8 +63,9 @@ function App() {
             {userData && <PlayerHeader userName={userData.name} playerImage={userData.image} size="small" />}
 
             <GameBoard>
-                {SelectedGame}
-
+                <Suspense fallback={<div>loading...</div>}>
+                    {selectedGamePath &&lazyLoadComponent(selectedGamePath)}
+                </Suspense>
             </GameBoard>
 
             {/*delete the button*/}
