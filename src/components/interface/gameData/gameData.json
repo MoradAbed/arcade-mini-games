@@ -1,6 +1,6 @@
 [
   {
-    "title": "rock Paper Scissors",
+    "title": "Rock Paper Scissors",
     "icon": "/res/rockpaperscissors.jpg",
     "tag": "RPS"
   },
@@ -10,8 +10,8 @@
     "tag": "TTT"
   },
   {
-    "title": "Tik Tak Toe",
-    "icon": "/res/tictaktoe.png",
-    "tag": "TTT"
+    "title": "Flip A Coin",
+    "icon": "/res/flip-a-coin.png",
+    "tag": "HOT"
   }
 ]
