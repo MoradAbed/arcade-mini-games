@@ -3,8 +3,6 @@ import LoginForm from "./components/interface/loginForm/LoginForm";
 import PlayerHeader from "./components/interface/playerHeader/PlayerHeader";
 import GamesList from "./components/interface/gameList/GamesList";
 import gameData from "../src/components/interface/gameData/gameData.json";
-import RPS from "./components/RPS/RPS";
-import ResultPopup from "./components/interface/resultPopup/ResultPopup";
 
 const states = {
   login: "login",
@@ -37,7 +35,7 @@ function App() {
 
     if(pageState === states.login)
         return  <div>
-            <ResultPopup content="ha ha ha ha ha" btnText="click me!" />
+
              <LoginForm onLogin={getUser}/>
         </div>
 

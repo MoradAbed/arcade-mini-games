@@ -1,0 +1,17 @@
+.square{
+    width: 50px;
+    height: 50px;
+}
+
+.border-row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
