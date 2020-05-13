@@ -1,22 +1,36 @@
 import React, {useEffect, useState} from 'react';
-import PropTypes from 'prop-types';
 import SecondsTimer from "../../commonGameElements/secondsTimer/SecondsTimer";
 import "../../commonGameElements/secondsTimer/secondsTimer.css"
 import RpsSelectionRow from "./RpsSelectionRow";
 
-RpsRound.propTypes = {
-    
-};
 
-function RpsRound(props) {
+
+function RpsRound({onRoundEnd, roundTime= 5}) {
     const [lockSelection,setLockSelection] = useState(false)
     const [userSelection,setUserSelection] = useState()
     const [rivalSelection,setRivalSelection] = useState()
+    const [rivalOptionsVisible,setRivalOptionsVisible] = useState(false)
+
+
 
     //todo return the result
 useEffect(()=>{
-    if(userSelection && rivalSelection && lockSelection)
-        console.log(userSelection,"---", rivalSelection)
+    //on round end
+
+    console.log(onRoundEnd,{userSelection,rivalSelection})
+
+    if(userSelection && rivalSelection ) {
+
+        const draw = (userSelection === rivalSelection);
+
+        const playerWon = !draw && (
+            (userSelection === "paper" && rivalSelection === "rock")
+            || (userSelection === "rock" && rivalSelection === "scissors")
+            || (userSelection === "scissors" && rivalSelection === "paper")
+        );
+        console.log(onRoundEnd,{draw,playerWon})
+        onRoundEnd && onRoundEnd({draw,playerWon})
+    }
 
 },[userSelection,rivalSelection,lockSelection])
 
@@ -28,15 +42,17 @@ useEffect(()=>{
                 titleBeforeOptions={false}
                 title="rival"
                 roundEnded={lockSelection}
-                areOptionsVisible={true}
+                areOptionsVisible={rivalOptionsVisible}
                 randomSelection = {true}
                 onSelect={(selectedOption)=>setRivalSelection(selectedOption)}
             />
 
 
             <br/>
-            <SecondsTimer time="5" onTimerEnd={ ()=> setLockSelection(true)
-            }/>
+            <SecondsTimer time={roundTime} onTimerEnd={ ()=>{
+                setLockSelection(true);
+                setRivalOptionsVisible(true);
+            }}/>
             <br/>
             
             <RpsSelectionRow

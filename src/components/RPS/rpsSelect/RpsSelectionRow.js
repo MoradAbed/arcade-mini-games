@@ -4,79 +4,89 @@ import rockColor from "../icons/icon-rock-color.svg"
 import paperColor from "../icons/icon-paper-color.svg"
 import scissorsColor from "../icons/icon-scissors-color.svg"
 import questionMark from "../icons/icon-questionMark.svg"
-import "./rpsSelectionRow.css"
+import "./rpsRound.css"
 
 const userSelections = {
     rock: "rock",
     paper: "paper",
     scissors: "scissors"
 }
+const rowState={
+    waitingForInput:0,
+    hideOptions:1,
+    showChosenOption:2,
+    done:3
+}
+function RpsSelectionRow({onSelect,
+                             title="choose your hand",
+                             titleBeforeOptions= true ,
+                             roundEnded = false,
+                             areOptionsVisible = true,
+                             randomSelection = false})
 
-function RpsSelectionRow({ onSelect,
-    title = "choose your hand",
-    titleBeforeOptions = true,
-    roundEnded = false,
-    areOptionsVisible = true,
-    randomSelection = false }) {
+{
 
-    const [userSelection, setUserSelection] = useState(userSelections.paper)
-    const [resultReturned, setResultReturned] = useState(false)
+    const [userSelection,setUserSelection] = useState()
 
-    useEffect(() => {
-        if (randomSelection) {
-            let values = Object.values(userSelections);
-            let randomChoice = Math.floor(Math.random() * values.length);
 
-            setUserSelection(values[randomChoice])
-        }
-
-    }, [randomSelection])
 
     useEffect(() => {
 
-        if (!resultReturned && roundEnded) {
-            setResultReturned(true)
+        if(roundEnded)
+        {
+            //gov the player a random value
+            if (randomSelection || !userSelection) {
+                let values = Object.values(userSelections);
+                let randomChoice = Math.floor(Math.random() * values.length);
+                document.getElementById("watchme")
+                setUserSelection(values[randomChoice])
+            }
 
-            if (onSelect)
+            //cal the selected cb function provided in the params
+            if(onSelect)
                 onSelect(userSelection);
 
 
         }
 
-    }, [roundEnded])
+    },[roundEnded,userSelection])
 
 
     return (
         <div className="rowContainer">
 
-            {titleBeforeOptions && <span>{title}</span>}
+            {/*show title below options*/}
+            {titleBeforeOptions &&<span>{title}</span> }
 
 
-            <div className="PlayerOptions" >
-                <RpsOption value="rock"
-                    src={areOptionsVisible ? rockColor : questionMark}
-                    isSelected={areOptionsVisible && userSelection === userSelections.rock}
-                    canSelect={!roundEnded}
-                    onSelect={() => setUserSelection(userSelections.rock)} />
+            {/*show options*/}
+            <div  className="playerOptions"  >
+                <RpsOption value={areOptionsVisible?"rock":null}
+                           src={areOptionsVisible? rockColor:questionMark }
+                           isSelected={areOptionsVisible && userSelection === userSelections.rock}
+                           canSelect={!roundEnded}
+                           onSelect={()=>setUserSelection(userSelections.rock)}/>
 
-                <RpsOption value="paper"
-                    src={areOptionsVisible ? paperColor : questionMark}
-                    canSelect={!roundEnded}
-                    isSelected={areOptionsVisible && userSelection === userSelections.paper}
-                    onSelect={() => setUserSelection(userSelections.paper)} />
+                <RpsOption value={areOptionsVisible?"paper":null}
+                           src={areOptionsVisible? paperColor:questionMark }
+                           canSelect={!roundEnded}
+                           isSelected={areOptionsVisible && userSelection === userSelections.paper}
+                           onSelect={()=>setUserSelection(userSelections.paper)}/>
 
-                <RpsOption value="scissors"
-                    src={areOptionsVisible ? scissorsColor : questionMark}
-                    canSelect={!roundEnded}
-                    isSelected={areOptionsVisible && userSelection === userSelections.scissors}
-                    onSelect={() => setUserSelection(userSelections.scissors)} />
+                <RpsOption value={areOptionsVisible?"scissors":null}
+                           src={areOptionsVisible? scissorsColor:questionMark }
+                           canSelect={!roundEnded}
+                           isSelected={areOptionsVisible && userSelection === userSelections.scissors}
+                           onSelect={()=>setUserSelection(userSelections.scissors)} />
             </div>
 
-
-            {!titleBeforeOptions && <span>{title}</span>}
+            {/*show title above options*/}
+            {!titleBeforeOptions &&<span>{title}</span> }
 
         </div>
     );
+
+
 }
 
 export default RpsSelectionRow;
