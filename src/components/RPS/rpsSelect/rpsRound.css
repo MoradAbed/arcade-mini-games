@@ -1,0 +1,27 @@
+
+
+.rowContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.playerOptions{
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+.windowContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content ;
+    padding: 10px;
+    box-sizing: border-box;
+
+}

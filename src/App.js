@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React  from "react";
 import LoginForm from "./components/interface/loginForm/LoginForm";
 import PlayerHeader from "./components/interface/playerHeader/PlayerHeader";
 import GamesList from "./components/interface/gameList/GamesList";
 import gameData from "../src/components/interface/gameData/gameData.json";
+import RPS from "./components/RPS/RPS";
+import ResultPopup from "./components/interface/resultPopup/ResultPopup";
 
 const states = {
   login: "login",
@@ -35,9 +37,8 @@ function App() {
 
     if(pageState === states.login)
         return  <div>
-          
-
-            { <LoginForm onLogin={getUser}/> }
+            <ResultPopup content="ha ha ha ha ha" btnText="click me!" />
+             <LoginForm onLogin={getUser}/>
         </div>
 
     if(pageState === states.homePage)
@@ -54,7 +55,7 @@ function App() {
             {/*delete the button*/}
             <button onClick={()=>setPageState(states.homePage)} style={{width:"100px" ,height:"100px", position:"fixed",left:"0",bottom:"0"}}/>
 
-
+                <RPS />
         </div>;
 
 
