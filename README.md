@@ -29,6 +29,7 @@ Each element of these components were devoloped seperately and each team member 
      - Game container
      
 **2. Individual components**
+Components that were used once and in a single place
      - Games list 
      - Single use page
      - Login form
