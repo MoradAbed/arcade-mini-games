@@ -19,10 +19,10 @@ function App() {
     const [pageState, setPageState] = React.useState(states.login)
     const [selectedGamePath, setSelectedGamePath] = React.useState()
 
-    const setLocalStorage= ({name,avatar_url})=>{
+    const setLocalStorage= ({name,image})=>{
 
         localStorage.setItem("user_name",name)
-        localStorage.setItem("user_img",avatar_url)
+        localStorage.setItem("user_img",image)
 
     }
     const getLocalStorage= ()=>{
@@ -71,11 +71,12 @@ function App() {
     //load the user date
     const getUser = (username) => {
 
-        fetchUserDate(username,({name ,html_url,avatar_url})=>{
+        fetchUserDate(username,({name ,avatar_url})=>{
             let usedName = name?name:username
+            let userImage = avatar_url? avatar_url: "https://i.imgur.com/GmbYauk.jpg";
             setPageState(states.homePage)
-            setLocalStorage({name:usedName,html_url,avatar_url})
-            setUserData({name: usedName, image: avatar_url })
+            setLocalStorage({name:usedName,image: userImage})
+            setUserData({name: usedName, image: userImage })
 
         })
 
