@@ -71,13 +71,11 @@ function App() {
     //load the user date
     const getUser = (username) => {
 
-        fetchUserDate(username,({name,html_url,avatar_url})=>{
+        fetchUserDate(username,({name ,html_url,avatar_url})=>{
+            let usedName = name?name:username
             setPageState(states.homePage)
-            setLocalStorage({name,html_url,avatar_url})
-            setUserData({
-                name: name ? name : username,
-                html_url,
-                image: avatar_url })
+            setLocalStorage({name:usedName,html_url,avatar_url})
+            setUserData({name: usedName, image: avatar_url })
 
         })
 
@@ -108,7 +106,7 @@ function App() {
                     setPageState(states.login)
                 }}
                         className="logoutBtn" >
-                    logOut
+                    Logout
                 </button>
 
             </Footer>
@@ -135,11 +133,11 @@ function App() {
                     setPageState(states.login)
                 }}
                        className="logoutBtn" >
-                    logOut
+                    Logout
                 </button>
 
                 <button onClick={() => setPageState(states.homePage)} className="backBtn"  >
-                    back
+                    Back
                 </button>
 
             </Footer>
