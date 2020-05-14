@@ -21,18 +21,18 @@ Some of the features that was implemented in our game:
 
 
 
-## initial design
+## iInitial Design
 
 ![](https://i.imgur.com/uE75ML3.png)
 
 
-## react components
+## React Components
 
 
 During the developing process, we defined common components  for the entire project and the components that will be used in a single place, hence;
 
 
-**1. Shared components**
+**1. Shared Components**
 Each element of these components were devoloped seperately and each team member was responsible for a part, for example;
      - Game intro
      - Game Header
@@ -40,13 +40,13 @@ Each element of these components were devoloped seperately and each team member 
      - Result popup window
      - Game container
 
-**2. Individual components**
+**2. Individual Components**
 Components that were used once and in a single place
 - Login form
 - Game list
 
 
-**3. The games**
+**3. The Games**
 Every game have it's "sub components"
  - Tic Tac Toe game
      - Square
@@ -58,7 +58,7 @@ Every game have it's "sub components"
      - Selection Option
 
 
-## react component diagrams
+## React Component Diagrams
 
 
 #### layout components
@@ -73,7 +73,7 @@ Every game have it's "sub components"
 
 
 
-## Stretch goals:
+## Stretch Goals:
 - Scoring system.
 - 2 player mode .
 - Add more games (Toss water ring, Head or Tails, Snake..).
@@ -83,7 +83,7 @@ Every game have it's "sub components"
 
 
 
-## credits
+## Credits
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
