@@ -12,3 +12,13 @@
   align-content: flex-end;
   padding: 0 50px;
 }
+.gameListContainer img{
+  cursor: pointer;
+  background-color: white;
+
+}
+.gameListContainer img:hover{
+  transform: scale(1.05);
+  cursor: pointer;
+
+}
