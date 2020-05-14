@@ -30,12 +30,10 @@ Each element of these components were devoloped seperately and each team member 
      
 **2. Individual components**
 Components that were used once and in a single place
-     - Game list
-     - single use page
-     - Login form
-     - Games list 
-     - Single use page
-     - Login form
+- Game list
+- single use page
+- Login form
+
      
 
 **3. The games**
