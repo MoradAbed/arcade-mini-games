@@ -14,14 +14,5 @@
     "icon": "/res/tictaktoe.png",
     "componentPath" : "./components/TTT/TTT"
 
-  },
-  {
-    "title": "Flip A Coin",
-    "startPageTitle":"Flip A Coin",
-    "alt": "Flip A Coin icon",
-    "icon": "/res/tictaktoe.png",
-    "componentPath" : "./components/TTT/TTT"
-
-
   }
 ]

@@ -5,6 +5,7 @@ import GamesList from "./components/interface/gameList/gamesList";
 import gameData from "./util/gameData.json";
 import GameBoard from "./components/interface/gameBoard/gameBoard"
 import fetchUserDate from "./util/fetchUserData";
+import Footer from "./components/interface/Footer/footer";
 
 const states = {
     login: "login",
@@ -56,6 +57,17 @@ function App() {
                 setSelectedGamePath(gameData)
                 setPageState(states.inGame)
             }} />
+
+            <Footer >
+                <button onClick={() => {
+                    setUserData(null)
+                    setPageState(states.login)
+                }}
+                        className="logoutBtn" >
+                    logOut
+                </button>
+
+            </Footer>
         </div>;
 
     //if the user enters a game
@@ -71,9 +83,21 @@ function App() {
                 </Suspense>
             </GameBoard>
 
-            {/*todo delete the button*/}
-            <button onClick={() => setPageState(states.homePage)} style={{ width: "100px", height: "100px", position: "fixed", left: "0", bottom: "0" }} />
 
+            <Footer >
+                <button onClick={() => {
+                    setUserData(null)
+                    setPageState(states.login)
+                }}
+                       className="logoutBtn" >
+                    logOut
+                </button>
+
+                <button onClick={() => setPageState(states.homePage)} className="backBtn"  >
+                    back
+                </button>
+
+            </Footer>
         </div>;
 
 
