@@ -20,6 +20,9 @@ function LoginForm({onLogin}) {
         if(islLading)
             return false;
 
+        if(!username)
+            return;
+
         setIsLoading(true)
         onLogin && onLogin(username)
     };
@@ -38,7 +41,8 @@ function LoginForm({onLogin}) {
         <div className="formContainer">
             <form className="loginForm" onSubmit={onSubmit}>
                 <label htmlFor="username">Enter your github username</label>
-                <input name="username" type="text" value={username} onChange={(e)=>setUsername(e.target.value)} />
+                <input name="username" type="text" value={username} onChange={(e)=>{setUsername(e.target.value.trim())}
+                } />
                 <input type="submit" name="submit" value="log in"/>
             </form>
         </div>
