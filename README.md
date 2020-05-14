@@ -1,23 +1,35 @@
-
-https://hackmd.io/PlLoti3XSN2DYDpUAMF0Mg?both
-
-# [*Arcade Mini Games*](https://hackmd.io/RBt-7_jgQC6iImJqWkkBUg) :black_joker:
-
-:triangular_flag_on_post: [***Website***](https://arcade-mini-games.netlify.app/)
-
-#### This interactive game was built using React.
+# [*Arcade Mini Games*](https://arcade-mini-games.netlify.app/) :black_joker:
 
 
+
+
+# Introduction
+
+our task this week was to create a game-like website using React.
+
+## Project Concept
+
+we decided to go with an "app drawer like" website containing multiple interactive mini-games.
+
+## Keynote Features
 Some of the features that was implemented in our game:
-- User name input
-- Using API (Github API) - the username you insert will be used to fetch your image from Github (so try inserting your real Github username).
-- Multiple games that you can choose from.
+- "login like" form.
+- fetch the user's name and image using Github API 
+    (so try inserting your real Github username).
+- "Multiple" games that you can choose from.
 -  Entertaining design :game_die:
 
 
-----
 
-During the developing process, we defined components thats common for the whole project and compononets that will be used in a single place, hence;
+## initial design
+
+![](https://i.imgur.com/uE75ML3.png)
+
+
+## react components
+
+
+During the developing process, we defined common components  for the entire project and the components that will be used in a single place, hence;
 
 
 **1. Shared components**
@@ -30,10 +42,8 @@ Each element of these components were devoloped seperately and each team member 
 
 **2. Individual components**
 Components that were used once and in a single place
-- Game list
-- single use page
 - Login form
-
+- Game list
 
 
 **3. The games**
@@ -45,34 +55,37 @@ Every game have it's "sub components"
  - Rock Paper Scissors game
      - Round
      - Selection Row
-     - Option
- - Head or Tails game
+     - Selection Option
 
 
-![](https://i.imgur.com/uE75ML3.png)
+## react component diagrams
 
 
+#### layout components
 ![](https://i.imgur.com/JlZOn9A.png)
 
+---------------------
 
-<br>
-<br>
+#### rock paper scissors components
+![](https://i.imgur.com/9FY98k4.png)
 
-:::info
-### Stretch goals:
+--------------------
+
+
+
+## Stretch goals:
 - Scoring system.
 - 2 player mode .
-- Add more games (Toss water ring, Snake..).
+- Add more games (Toss water ring, Head or Tails, Snake..).
 - Refactor the game managers in a way that they both use the same common parts of a single component (TTT & RPS).
-:::
+- #### /play crickets sound effects
 
 
-<br>
 
-if you like to see our prototype design and planning, [please click here](https://hackmd.io/PlLoti3XSN2DYDpUAMF0Mg?both)
 
+## credits
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-#### /play crickets
+
