@@ -69,6 +69,7 @@ export default function Board({onGameEnd}) {
 
         return {isDraw:  boardFull && !xPlayer && !oPlayer, playerWon: xPlayer , gameEnded:xPlayer || oPlayer || boardFull };
     };
+    //check if the game has ended or not
 
 
     const hasPlayerWon = (playerSymbol) => {
@@ -128,24 +129,74 @@ export default function Board({onGameEnd}) {
         setIsTurnX(!isTurnX);
     };
 
-    //place an 0 in a random spot
+
+
+    const getRandomPos = ()=>{
+
+        //npc is about to win
+        let check = checkIfAboutToLoose(boardState.O);
+        if(check)
+            return check;
+
+        //npc is about to lose
+        check = checkIfAboutToLoose(boardState.X);
+        if(check)
+            return check;
+
+        //random spot
+        while (true) {
+            let col = Math.floor(Math.random() * 3);
+            let row = Math.floor(Math.random() * 3);
+
+            if (boardData[row][col] === boardState.empty)
+                return {row ,col}
+
+        }
+    }
+    const checkIfAboutToLoose = (rivalSymbol) => {
+        //check rows
+        let rows = boardData.filter((row) => (row.filter((cell) => cell === rivalSymbol).length ===2) && row.includes(boardState.empty))
+        if (rows.length)
+            return {row:boardData.indexOf(rows[0]), col:rows[0].indexOf(boardState.empty)};
+
+        //check columns
+        for (let col = 0; col < 3; col++) {
+            let row;
+            let count = 0;
+            let emptySpot = false;
+            for (row = 0; row < 3; row++)
+                if (boardData[row][col] === rivalSymbol) count++;
+                else if (boardData[row][col] === boardState.empty) emptySpot = row;
+
+            if(count ===  2 && emptySpot)
+                return {col,row:emptySpot}
+        }
+
+
+        //check diagonal
+        let diagonal = [boardData[0][0],boardData[1][1],boardData[2][2]]
+        if( diagonal.filter((cell) => cell === rivalSymbol).length ===2  && diagonal.includes(boardState.empty))
+            return {row: diagonal.indexOf(boardState.empty), col: diagonal.indexOf(boardState.empty)}
+
+
+        let reverseDiagonal = [boardData[0][2],boardData[1][1],boardData[2][0]]
+        if( reverseDiagonal.filter((cell) => cell === rivalSymbol).length ===2  && diagonal.includes(boardState.empty))
+            return {row: reverseDiagonal.indexOf(boardState.empty), col: 2- reverseDiagonal.indexOf(boardState.empty)}
+
+
+
+    };
     const setRandomValue = () => {
-        let placed = false;
 
         if(checkIfGameEnded().gameEnded)
             return;
 
-        //find a free random spot
-        while (!placed) {
-            let col = Math.floor(Math.random() * 3);
-            let row = Math.floor(Math.random() * 3);
+        let {row,col} = getRandomPos()
 
-            // a random free spot is found - update the board
-            if (boardData[row][col] === boardState.empty) {
-                setValue(row, col, boardState.O);
-                placed = true;
-            }
-        }
+        setValue(row, col, boardState.O);
+
+        //find a free random spot
+
     };
 
 
