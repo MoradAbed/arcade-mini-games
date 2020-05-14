@@ -79,6 +79,7 @@ Every game have it's "sub components"
 - 2 player mode .
 - Add more games (Toss water ring, Head or Tails, Snake..).
 - Refactor the game managers in a way that they both use the same common parts of a single component (TTT & RPS).
+- testing, tests and testing testy tests
 - #### /play crickets sound effects
 
 
