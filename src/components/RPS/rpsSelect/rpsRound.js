@@ -21,7 +21,7 @@ function RpsRound({onRoundEnd, roundTime= 5}) {
 useEffect(()=>{
     //on round end
 
-    console.log(onRoundEnd,{userSelection,rivalSelection})
+
 
     if(userSelection && rivalSelection ) {
 
@@ -32,7 +32,7 @@ useEffect(()=>{
             || (userSelection === "rock" && rivalSelection === "scissors")
             || (userSelection === "scissors" && rivalSelection === "paper")
         );
-        console.log(onRoundEnd,{draw,playerWon})
+
         onRoundEnd && onRoundEnd({draw,playerWon})
     }
 
