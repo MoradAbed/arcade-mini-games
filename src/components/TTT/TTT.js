@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Board from "./Board";
+import Board from "./board";
 import GameIntro from "../commonGameElements/gameIntro/gameIntro";
 import Popup from "../commonGameElements/popup/popup";
 import PropTypes from "prop-types";
