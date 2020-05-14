@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from "react";
+import React, {lazy, Suspense, useEffect} from "react";
 import LoginForm from "./components/interface/loginForm/loginForm";
 import PlayerHeader from "./components/interface/playerHeader/PlayerHeader";
 import GamesList from "./components/interface/gameList/gamesList";
@@ -19,6 +19,47 @@ function App() {
     const [pageState, setPageState] = React.useState(states.login)
     const [selectedGamePath, setSelectedGamePath] = React.useState()
 
+    const setLocalStorage= ({name,avatar_url})=>{
+
+        localStorage.setItem("user_name",name)
+        localStorage.setItem("user_img",avatar_url)
+
+    }
+    const getLocalStorage= ()=>{
+
+        let prevUserDate= {};
+        if(localStorage)
+            prevUserDate={
+                name :localStorage.getItem("user_name"),
+                image: localStorage.getItem("user_img"),
+            }
+        return prevUserDate;
+    }
+    const clearLocalStorage= ()=> {
+        if (localStorage) {
+            localStorage.removeItem("user_img")
+            localStorage.removeItem("user_name")
+        }
+    }
+
+
+
+    useEffect(()=>{
+
+
+        if(pageState === "login")
+        {
+            let prevUserDate= getLocalStorage();
+
+            if(prevUserDate.name)
+            {
+                setUserData(prevUserDate)
+                setPageState(states.homePage)
+            }
+        }
+
+    }, [pageState])
+
 
     //load the game tag for the selected game
     function lazyLoadComponent({startPageTitle,componentPath:path}) {
@@ -29,8 +70,10 @@ function App() {
 
     //load the user date
     const getUser = (username) => {
+
         fetchUserDate(username,({name,html_url,avatar_url})=>{
             setPageState(states.homePage)
+            setLocalStorage({name,html_url,avatar_url})
             setUserData({
                 name: name ? name : username,
                 html_url,
@@ -61,6 +104,7 @@ function App() {
             <Footer >
                 <button onClick={() => {
                     setUserData(null)
+                    clearLocalStorage()
                     setPageState(states.login)
                 }}
                         className="logoutBtn" >
@@ -87,6 +131,7 @@ function App() {
             <Footer >
                 <button onClick={() => {
                     setUserData(null)
+                    clearLocalStorage()
                     setPageState(states.login)
                 }}
                        className="logoutBtn" >
