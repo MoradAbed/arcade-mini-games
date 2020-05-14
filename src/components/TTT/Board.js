@@ -131,15 +131,15 @@ export default function Board({onGameEnd}) {
 
 
 
-    const getRandomPos = ()=>{
+    const getNpcNextPos = ()=>{
 
         //npc is about to win
-        let check = checkIfAboutToLoose(boardState.O);
+        let check = checkIfAboutToLooseTo(boardState.O);
         if(check)
             return check;
 
         //npc is about to lose
-        check = checkIfAboutToLoose(boardState.X);
+        check = checkIfAboutToLooseTo(boardState.X);
         if(check)
             return check;
 
@@ -153,7 +153,7 @@ export default function Board({onGameEnd}) {
 
         }
     }
-    const checkIfAboutToLoose = (rivalSymbol) => {
+    const checkIfAboutToLooseTo = (rivalSymbol) => {
         //check rows
         let rows = boardData.filter((row) => (row.filter((cell) => cell === rivalSymbol).length ===2) && row.includes(boardState.empty))
         if (rows.length)
@@ -191,7 +191,7 @@ export default function Board({onGameEnd}) {
         if(checkIfGameEnded().gameEnded)
             return;
 
-        let {row,col} = getRandomPos()
+        let {row,col} = getNpcNextPos()
 
         setValue(row, col, boardState.O);
 
