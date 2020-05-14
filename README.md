@@ -18,6 +18,7 @@ Some of the features that was implemented in our game:
     (so try inserting your real Github username).
 - "Multiple" games that you can choose from.
 -  Entertaining design :game_die:
+- lazy load  react components using a json metadata file
 
 
 
