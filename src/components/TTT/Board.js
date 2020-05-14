@@ -151,14 +151,14 @@ export default function Board({onGameEnd}) {
 
     //render a square
     const renderSquare = (row, col, data) => (
-        <Square value={data} onClick={() => isTurnX && setValue(row, col, boardState.X)}/>
+        <Square key={`cell_${row+col}`}  value={data} onClick={() => isTurnX && setValue(row, col, boardState.X)}/>
     );
 
     //render all squares
     return (
         <div className="grid">
             {boardData.map((row, rowIndex) => (
-                <div className="border-row">
+                <div className="border-row" key={`row_${rowIndex}`}>
                     {row.map((data, colIndex) => renderSquare(rowIndex, colIndex, data))}
                 </div>
             ))}
